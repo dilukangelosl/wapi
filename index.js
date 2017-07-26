@@ -9,24 +9,6 @@ var wp = new WPAPI({
     username: 'admin',
     password: 'admin123@pass'
 });
-/*
-wp.posts().create({
-    // "title" and "content" are the only required properties
-    title: 'Your Post Title',
-    content: 'Your post content',
-    // Post will be created as a draft by default if a specific "status"
-    // is not specified
-    status: 'publish'
-}).then(function( response ) {
-    // "response" will hold all properties of your newly-created post,
-    // including the unique `id` the post was assigned on creation
-    console.log(done);
-    console.log( response.id );
-},function(er){
-  console.log(er);
-})
-*/
-
 
 
 
@@ -35,9 +17,10 @@ var route = '/lawreport/(?P<id>)'; // route string - allows optional ID paramete
 
 
 wp.lawreports = wp.registerRoute( namespace, route );
-wp.lawreports().then(function(res){
+
+/*wp.lawreports().then(function(res){
   console.log();
-})
+})*/
 
 
 
@@ -144,12 +127,6 @@ wp.tags().create({
         title: post.title,
         content: post.content,
         tags:data,
-        
-        meta: {
-    "wpcf-casedate": "1996-08-26"
-},
-        // Post will be created as a draft by default if a specific "status"
-        // is not specified
         status: 'publish'
     }).then(function(res){
       console.log("Created Post");
